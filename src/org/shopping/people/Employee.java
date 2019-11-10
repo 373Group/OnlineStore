@@ -4,7 +4,7 @@ import org.shopping.warehouse.Department;
 
 public class Employee extends Person{
 	public Employee() {
-		this.name = "unkwon";
+		this.name = "unknown";
 		this.userId = "12345";
 	}
 	
