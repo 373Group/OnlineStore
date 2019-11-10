@@ -3,6 +3,11 @@ package org.shopping.people;
 import org.shopping.warehouse.Department;
 
 public class Employee extends Person{
+	public Employee() {
+		this.name = "unkwon";
+		this.userId = "12345";
+	}
+	
 	public void AddToStock() {
 		
 	}
