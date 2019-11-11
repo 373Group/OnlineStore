@@ -33,5 +33,15 @@ public class Department {
 		itemList.remove(aItem);
 		//is this it??
 	}
+	public void addItem(Item aItem) {
+		this.itemList.add(aItem);
+		//item add to inventory??
+	}
+	
+	public void printItemList() {
+		for(Item i : itemList) {
+			System.out.println(this.name + " department has " + i.getName());
+		}
+	}
 
 }

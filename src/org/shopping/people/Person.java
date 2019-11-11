@@ -2,10 +2,13 @@ package org.shopping.people;
 import org.shopping.warehouse.*;
 
 public abstract class Person {
-	private Inventory inventory;
+	protected Inventory inventory;
 	protected String name;
 	protected String userId;
 	
+	public Person() {
+		
+	}
 	
 	public Inventory getInventory() {
 		return inventory;
@@ -13,4 +16,22 @@ public abstract class Person {
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
+	
+	public void setName(String aName) {
+		name = aName;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setUserID(String aID) {
+		userId = aID;
+	}
+	
+	public String getUserID() {
+		return userId;
+	}
+	
+	
 }

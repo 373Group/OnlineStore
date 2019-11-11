@@ -4,45 +4,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+	@SuppressWarnings("unused")
 	public class Item {
-		private String barcode;
+		
 		private String name;
 		private Integer dateOfPurchase;
 		private Integer quantity;
 		private Integer maxQuantity;
 		private Integer minQuantity;
 		private Double price;
-		private HashMap<String, String> freeItemDict; //somehting needs to be fixed here??
-	
-	
+		private Integer cartQuantity; 
+		
 	@SuppressWarnings("serial")
 	public Item() {	
-		setBarcode("0000");
+		
 		setName("ZZZ");
 		setDateOfPurchase(1234);
 		setQuantity(0);
 		setMaxQuantity(0);
 		setMinQuantity(0);
 		setPrice((double)0);
-		setFreeItemDict(new HashMap<String, String>() {{
-		    put("itemName","quant");
-		}});//need to worry about this later.
+		cartQuantity = 0;
 		
 	}
 
-
-	public String getBarcode() {
-		return barcode;
-	}
-
-
-	public void setBarcode(String barcode) {
-		this.barcode = barcode;
-	}
-
-
 	public String getName() {
 		return name;
+	}
+	public void setCartQuantity(Integer aCartQuantity) {
+		cartQuantity = aCartQuantity;
+	}
+	public Integer getCartQuantity() {
+		return cartQuantity;
 	}
 
 
@@ -96,29 +89,28 @@ import java.util.Map;
 	}
 
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-
-	public HashMap<String, String> getFreeItemDict() {
-		return freeItemDict;
-	}
-
-
-	public void setFreeItemDict(HashMap<String, String> freeItemDict) {
-		this.freeItemDict = freeItemDict;
+	public void addQuantity(int aQuantity) {
+		quantity += aQuantity;
 	}
 	
-	public Boolean outofStock() {
+	public void dropQuantity(int aQuantity) {
+		quantity -= aQuantity;
+	}
+
+
+	
+	
+	public Boolean outOfStock() {
 		boolean flag = false; 
 		
-		//needs work here
+		if(this.quantity == 0) {
+			return true;
+		}
 		return flag;
 	}
 	
-	public Item giveFree() {
-		//needs fixing
+	public Item giveFree() { 
+		//Do this if we have time
 		return this;
 	}
 	
