@@ -6,10 +6,6 @@ public abstract class Person {
 	protected String name;
 	protected String userId;
 	
-	public Person() {
-		
-	}
-	
 	public Inventory getInventory() {
 		return inventory;
 	}
