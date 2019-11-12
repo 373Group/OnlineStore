@@ -8,8 +8,15 @@ public class PaymentMethod {
 		return false;
 		
 	}
-	public void IncorrectPayment() {
-		
+	public Boolean IncorrectPayment(String CCNumber) {
+		//for(String itr : CCNumber) {
+		//	
+		//}
+		if(CCNumber.length() == 16) {
+			return true;
+		}
+		else
+		return true;
 	}
 	
 	public void CheckOut() {

@@ -70,6 +70,11 @@ public class Customer extends Person{
 		
 		
 	}
+	
+	public void finished() {
+		
+		
+	}
 
 	public Cart getCart() {
 		return cart;
