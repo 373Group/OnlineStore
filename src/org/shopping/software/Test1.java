@@ -21,34 +21,11 @@ public class Test1 {
 	public JFrame frame;
 	public OnlineStore onlinestore;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					public OnlineStore onlinestore = new OnlineStore();
-					Test1 window = new Test1(onlinestore);
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the application.
-	 */
 	public Test1(OnlineStore os) {
 		onlinestore = os;
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		
 		frame = new JFrame();
@@ -132,4 +109,5 @@ public void buildNewUserLoginGUI() {
 		
 	}
 }
+
 
