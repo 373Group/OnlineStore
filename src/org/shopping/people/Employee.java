@@ -3,8 +3,8 @@ import org.shopping.warehouse.*;
 
 public class Employee extends Person{
 	
-	public Employee() {
-		this.name = "unknown";
+	public Employee(String name) {
+		this.name = name;
 		this.userId = "12345";
 		
 	}

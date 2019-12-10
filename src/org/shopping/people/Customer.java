@@ -7,8 +7,8 @@ public class Customer extends Person {
 
 	private Cart cart;
 
-	public Customer() {
-		this.name = "unknown";
+	public Customer(String name) {
+		this.name = name;
 		this.userId = "12345";
 		cart = new Cart();
 	}
