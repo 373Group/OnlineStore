@@ -98,9 +98,6 @@ public class Driver2 {
 		Employee e1 = new Employee("Rish");
 		Customer c1 = new Customer("Ariel");
 		
-		
-		
-		
 	
 	//os.addCustomer(c1, "123");
 	

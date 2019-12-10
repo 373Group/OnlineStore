@@ -93,7 +93,7 @@ public class Test1 {
 	public void buildCustomerLoginGUI() {
 		
 		System.out.println("buildCustLogin function");
-		CustomerLogin ns = new CustomerLogin();
+		CustomerLogin ns = new CustomerLogin(onlinestore);
 		//secondFrame.frame.setVisible(true);
 		ns.frame.setVisible(true);
 		
@@ -101,11 +101,9 @@ public class Test1 {
 	
 public void buildNewUserLoginGUI() {
 		System.out.println("buildNewUserLoginGUI() function");
-		CreateUser ns = new CreateUser();
+		CreateUser ns = new CreateUser(onlinestore);
 		//secondFrame.frame.setVisible(true);
 		ns.frame.setVisible(true);
-		
-		
 		
 	}
 }

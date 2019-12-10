@@ -128,7 +128,7 @@ public class EmpLogin {
 		
 		
 		for (Employee e : onlinestore.employeeList.keySet()) { 
-			System.out.println(e.getName());
+			//System.out.println(e.getName());
 			System.out.println(password);
 			if(e.getName().equals(name)) {
 				
@@ -143,13 +143,13 @@ public class EmpLogin {
 			}
 			else {
 				System.out.println("Incorrect password");
-				JOptionPane.showMessageDialog(null, "Password incorrect. Please try again." , "Password not correct", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Employee Password incorrect. Please try again." , "Password not correct", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		else{
 			System.out.println("UserName not found");
-			System.out.println(name);
-			JOptionPane.showMessageDialog(null, "UserName not found. Please create new ID." , "UserName not found", JOptionPane.ERROR_MESSAGE);
+			//System.out.println(name);
+			JOptionPane.showMessageDialog(null, "Employee UserName not found. Please create new ID." , "UserName not found", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		

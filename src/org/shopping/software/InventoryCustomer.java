@@ -11,7 +11,7 @@ import javax.swing.JButton;
 
 public class InventoryCustomer {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txtWhatDoYou;
 	private JTextField textField;
 
