@@ -89,6 +89,8 @@ public class Driver {
 		
 		c1.getCart().printBill();
 		
+		OnlineStoreGUI newGUI = new OnlineStoreGUI("Online Store GUI", warehouse);
+		
 	}
 }
 	
