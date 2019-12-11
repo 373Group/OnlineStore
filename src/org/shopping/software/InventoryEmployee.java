@@ -17,6 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
@@ -140,6 +141,12 @@ public class InventoryEmployee {
 		JRadioButton rdbtnProduce = new JRadioButton("Produce");
 		rdbtnProduce.setBounds(240, 57, 71, 23);
 		frame.getContentPane().add(rdbtnProduce);
+		
+		ButtonGroup bgroup = new ButtonGroup();
+		bgroup.add(rdbtnPharmacy);
+		bgroup.add(rdbtnProduce);
+		bgroup.add(rdbtnNewRadioButton);
+		bgroup.add(rdbtnElectronics);
 //		rdbtnProduce.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				System.out.println("Produce pressed");

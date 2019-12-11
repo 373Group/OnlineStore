@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Color;
+import java.awt.Component;
 
 public class Test1 {
 
@@ -64,7 +65,8 @@ public class Test1 {
 		JTextPane txtpnWelcomeToBaby = new JTextPane();
 		txtpnWelcomeToBaby.setBackground(Color.CYAN);
 		txtpnWelcomeToBaby.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		txtpnWelcomeToBaby.setText("Welcome to baby Amazon");
+		txtpnWelcomeToBaby.setContentType("text/html");
+		txtpnWelcomeToBaby.setText("<html><center><b><font size=5>Welcome to baby Amazon</font></b></center></html>");
 		txtpnWelcomeToBaby.setBounds(100, 60, 249, 55);
 		frame.getContentPane().add(txtpnWelcomeToBaby);
 		

@@ -1,8 +1,8 @@
 package org.shopping.software;
 import java.util.*;
-
-
+import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import org.shopping.people.Customer;
 import org.shopping.people.Employee;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
@@ -63,8 +64,9 @@ public class CreateUser {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea txtrPleaseCreateAn = new JTextArea();
-		txtrPleaseCreateAn.setText("Please create an account");
-		txtrPleaseCreateAn.setBounds(114, 17, 220, 54);
+		txtrPleaseCreateAn.setText(" Please create an account");
+		txtrPleaseCreateAn.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		txtrPleaseCreateAn.setBounds(103, 41, 220, 26);
 		frame.getContentPane().add(txtrPleaseCreateAn);
 		
 //		JTextArea txtrName = new JTextArea();
@@ -74,12 +76,14 @@ public class CreateUser {
 		
 		JTextArea txtrUsername = new JTextArea();
 		txtrUsername.setText("Username");
-		txtrUsername.setBounds(18, 141, 142, 27);
+		txtrUsername.setBounds(101, 136, 80, 27);
+//		txtrUsername.setAlignmentX(Component.CENTER_ALIGNMENT);
 		frame.getContentPane().add(txtrUsername);
 		
 		JTextArea txtrPassword = new JTextArea();
 		txtrPassword.setText("Password");
-		txtrPassword.setBounds(18, 180, 142, 27);
+		txtrPassword.setBounds(103, 181, 78, 27);
+//		txtrPassword.setAlignmentX(Component.CENTER_ALIGNMENT);
 		frame.getContentPane().add(txtrPassword);
 		
 //		textField = new JTextField();
@@ -89,23 +93,27 @@ public class CreateUser {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(236, 136, 130, 26);
+		textField_1.setBounds(191, 136, 164, 26);
 		frame.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(236, 181, 130, 26);
+		textField_2.setBounds(191, 181, 164, 26);
 		frame.getContentPane().add(textField_2);
 		
 		
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Employee");
-		rdbtnNewRadioButton.setBounds(55, 72, 141, 23);
+		rdbtnNewRadioButton.setBounds(103, 73, 141, 23);
 		frame.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnUser = new JRadioButton("User");
-		rdbtnUser.setBounds(225, 72, 141, 23);
+		rdbtnUser.setBounds(247, 72, 141, 23);
 		frame.getContentPane().add(rdbtnUser);
+		
+		ButtonGroup bgroup = new ButtonGroup();
+		bgroup.add(rdbtnNewRadioButton);
+		bgroup.add(rdbtnUser);
 		
 		
 		
@@ -132,7 +140,7 @@ public class CreateUser {
 			}
 			
 		});
-		btnNewButton.setBounds(236, 227, 144, 29);
+		btnNewButton.setBounds(211, 217, 144, 29);
 		frame.getContentPane().add(btnNewButton);
 		
 	}
