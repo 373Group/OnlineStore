@@ -16,6 +16,12 @@ public class Driver2 {
 		Department pharmacy = new Department();
 		Department food = new Department();
 		
+		produce.setName("produce");
+		electronics.setName("electronics");
+		pharmacy.setName("pharmacy");
+		food.setName("food");
+		
+		
 		Item i1 = new Item();
 		Item i2 = new Item();
 		Item i3 = new Item();
@@ -50,17 +56,27 @@ public class Driver2 {
 		i9.setMinQuantity(1);
 		i10.setMinQuantity(1);
 		
-		i1.setMaxQuantity(1);
-		i2.setMaxQuantity(1);
-		i3.setMaxQuantity(1);
-		i4.setMaxQuantity(1);
-		i5.setMaxQuantity(1);
-		i6.setMaxQuantity(1);
-		i7.setMaxQuantity(1);
-		i8.setMaxQuantity(1);
-		i9.setMaxQuantity(1);
-		i10.setMaxQuantity(1);
+		i1.setMaxQuantity(25);
+		i2.setMaxQuantity(25);
+		i3.setMaxQuantity(25);
+		i4.setMaxQuantity(25);
+		i5.setMaxQuantity(25);
+		i6.setMaxQuantity(25);
+		i7.setMaxQuantity(25);
+		i8.setMaxQuantity(25);
+		i9.setMaxQuantity(25);
+		i10.setMaxQuantity(25);
 		
+		i1.setQuantity(20);
+		i2.setQuantity(20);
+		i3.setQuantity(20);
+		i4.setQuantity(20);
+		i5.setQuantity(20);
+		i6.setQuantity(20);
+		i7.setQuantity(20);
+		i8.setQuantity(20);
+		i9.setQuantity(20);
+		i10.setQuantity(20);
 		
 		i1.setPrice(400);
 		i2.setPrice(2);
@@ -105,7 +121,7 @@ public class Driver2 {
 		os.addEmployee(e1, "12345");
 		
 		gui = new Test1(os);
-		//Test1 window = new Test1(os);
+		
 		gui.frame.setVisible(true);
 		
 		

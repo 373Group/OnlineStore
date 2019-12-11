@@ -43,5 +43,12 @@ public class Department {
 			System.out.println(this.name + " department has " + i.getName());
 		}
 	}
+	
+//	public 
+//	
+//	public ArrayList<Item> getDepartmentItems(Department d){
+//		
+//		reutnr null;
+//	}
 
 }

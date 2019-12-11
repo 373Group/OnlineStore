@@ -153,7 +153,9 @@ public class CreateUser {
 				
 				onlinestore.employeeList.put(e1, password);
 				System.out.println("New Employee Created, Please login");
-				JOptionPane.showMessageDialog(null, "New Employee Created" , "new Employee", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(null, "New Employee Created. PLease Login Again" , "new Employee", JOptionPane.PLAIN_MESSAGE);
+				
+				buildEmployeeLoginGUI();
 			}
 			
 			
@@ -174,7 +176,9 @@ public class CreateUser {
 				
 				onlinestore.customerList.put(c1, password);
 				//System.out.println("New Customer Created, Please Login");
-				JOptionPane.showMessageDialog(null, "New Customer Created " , "new Customer", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(null, "New Customer Created. Please Login Again " , "new Customer", JOptionPane.PLAIN_MESSAGE);
+				buildCustomerLoginGUI();
+				
 			}
 			
 			
@@ -182,4 +186,23 @@ public class CreateUser {
 		}
 
 	}
+	
+
+	
+	public void buildEmployeeLoginGUI() {
+			
+			System.out.println("buildEmpLogin function");
+			EmpLogin ns = new EmpLogin(onlinestore);
+			//secondFrame.frame.setVisible(true);
+			ns.frame.setVisible(true);
+			
+		}
+	public void buildCustomerLoginGUI() {
+		
+		System.out.println("buildCustLogin function");
+		CustomerLogin ns = new CustomerLogin(onlinestore);
+		//secondFrame.frame.setVisible(true);
+		ns.frame.setVisible(true);
+		
+	}	
 }

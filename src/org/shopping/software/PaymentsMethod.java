@@ -3,40 +3,37 @@ package org.shopping.software;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.shopping.people.Customer;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class PaymentsMethod {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField txtCardnumber;
 	private JTextField txtExpiry;
 	private JTextField txtCvv;
-	private JTextField txtPay;
+	public Customer customer;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PaymentsMethod window = new PaymentsMethod();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	
 
 	/**
 	 * Create the application.
 	 */
-	public PaymentsMethod() {
+	public PaymentsMethod(Customer c) {
+		customer = c;
 		initialize();
 	}
 
@@ -87,11 +84,42 @@ public class PaymentsMethod {
 		frame.getContentPane().add(txtCvv);
 		txtCvv.setColumns(10);
 		
-		txtPay = new JTextField();
-		txtPay.setText("PAY!!");
-		txtPay.setBounds(229, 210, 130, 26);
-		frame.getContentPane().add(txtPay);
-		txtPay.setColumns(10);
+		JButton btnPay = new JButton("PAY!!!");
+		btnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String cardNum ;
+				cardNum = textField.getText();
+				String expiry ;
+				expiry = textField_1.getText();
+				String cvv ;
+				cvv = textField_2.getText();
+				
+				BuildByeGui();
+				
+				System.out.println("Button works");
+				if(cardNum.equals("") && cardNum.length()!=16) {
+					System.out.println("Please enter a valid card Number");
+					JOptionPane.showMessageDialog(null, "Bad card Number " , "Bad card Number", JOptionPane.ERROR_MESSAGE);
+				}else if(expiry.equals("")) {
+					System.out.println("Bad Expiry");
+					JOptionPane.showMessageDialog(null, "Bad Expiry" , "Bad Expiry", JOptionPane.ERROR_MESSAGE);
+				}else if(cvv.equals("") && cvv.length()!=3) {
+					System.out.println("Bad Cvv");
+					JOptionPane.showMessageDialog(null, "Bad Cvv" , "Bad Cvv", JOptionPane.ERROR_MESSAGE);
+				}else {
+					System.out.println("12345");
+					BuildByeGui();
+				}
+			}
+		});
+		btnPay.setBounds(229, 216, 117, 29);
+		frame.getContentPane().add(btnPay);
 	}
-
+	public void BuildByeGui() {
+		System.out.println("Bye");
+		Bye ns = new Bye();
+		ns.frame.setVisible(true);
+	}
+	
 }

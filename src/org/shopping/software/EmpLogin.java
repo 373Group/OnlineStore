@@ -104,14 +104,14 @@ public class EmpLogin {
 		btnNewButton.setBounds(207, 238, 117, 29);
 		frame.getContentPane().add(btnNewButton);
 	}
-	
-	public void buildEmployeeInventory() {
+	public void buildEmployeeInventory(Employee emp) {
 		
 		System.out.println("buildEmployeeInventory function");
-		InventoryEmployee ns = new InventoryEmployee();
+		InventoryEmployee ns = new InventoryEmployee(onlinestore, emp);
 		//secondFrame.frame.setVisible(true);
 		ns.frame.setVisible(true);
 	}
+	
 	
 	public void checkLoginStatus(String name, String password) {
 		Employee eTest1 = null;
@@ -139,7 +139,7 @@ public class EmpLogin {
 		if(eTest1 !=null) {
 			if(onlinestore.employeeList.get(eTest1).equals(password)){
 				System.out.println("sucess");
-				buildEmployeeInventory();
+				buildEmployeeInventory(eTest1);
 			}
 			else {
 				System.out.println("Incorrect password");

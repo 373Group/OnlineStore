@@ -10,13 +10,17 @@ public class Employee extends Person{
 	}
 	
 	public void AddToStock(Department aDepartment, Item aItem, int aQuantity ) {
+			System.out.println("Add to stock employee");
 			if(aItem.getMinQuantity() > aItem.getQuantity()) {
 				System.out.println("No need to add to stock because we already have enough");
 			}else if((aQuantity + aItem.getQuantity()) > aItem.getMaxQuantity()) {
 				System.out.println("Exceeding Max Quantity of " + aItem.getName());					
 			}else{
+				System.out.println("aQuntity is working");
 				aItem.addQuantity(aQuantity);
+				System.out.println("aItem is working");
 				aDepartment.addItem(aItem);
+				System.out.println("This won't show");
 			}
 	}
 	
@@ -27,6 +31,9 @@ public class Employee extends Person{
 	
 	public void ChangePrice(double aPrice, Item aItem) {
 		aItem.setPrice(aPrice);
+	}
+	public void setMax(Item aItem, Integer quantity) {
+		aItem.setMaxQuantity(quantity);
 	}
 	
 	public void addDepartment(Department aDepartment) { //adding a department

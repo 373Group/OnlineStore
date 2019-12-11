@@ -99,13 +99,15 @@ public class Test1 {
 		
 	}
 	
-public void buildNewUserLoginGUI() {
-		System.out.println("buildNewUserLoginGUI() function");
-		CreateUser ns = new CreateUser(onlinestore);
-		//secondFrame.frame.setVisible(true);
-		ns.frame.setVisible(true);
-		
-	}
+	public void buildNewUserLoginGUI() {
+			System.out.println("buildNewUserLoginGUI() function");
+			CreateUser ns = new CreateUser(onlinestore);
+			//secondFrame.frame.setVisible(true);
+			ns.frame.setVisible(true);
+			
+		}
+	
+	
 }
 
 

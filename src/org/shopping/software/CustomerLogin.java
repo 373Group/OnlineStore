@@ -20,6 +20,7 @@ public class CustomerLogin {
 	private JTextField textField;
 	private JTextField textField_1;
 	public OnlineStore onlinestore;
+	public Customer customer;
 
 	/**
 	 * Launch the application.
@@ -95,10 +96,10 @@ public class CustomerLogin {
 	}
 	
 	
-	public void buildCustomerInventory() {
+	public void buildCustomerInventory(Customer c) {
 			
 			System.out.println("buildCustomerInventory function");
-			InventoryCustomer ns = new InventoryCustomer();
+			InventoryCustomer ns = new InventoryCustomer(onlinestore, c);
 			//secondFrame.frame.setVisible(true);
 			ns.frame.setVisible(true);
 		}
@@ -130,7 +131,7 @@ public class CustomerLogin {
 		if(cTest1 !=null) {
 			if(onlinestore.customerList.get(cTest1).equals(password)){
 				System.out.println("sucess");
-				buildCustomerInventory();
+				buildCustomerInventory(cTest1);
 			}
 			else {
 				System.out.println("Incorrect password");
