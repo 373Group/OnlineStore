@@ -31,7 +31,7 @@ public class InventoryEmployee {
 	private JTextField textField_2;
 	public ArrayList<String> displayVals = new ArrayList<String>();
 	public JList testList = new JList();
-	private JScrollPane sp = new JScrollPane();
+//	aprivate JScrollPane sp = new JScrollPane();
 	public OnlineStore onlinestore;
 	public Employee employee;
 
@@ -77,7 +77,7 @@ public class InventoryEmployee {
 		frame.getContentPane().add(txtWhatDoYou);
 		
 		testList.setBounds(27, 79, 149, 162);
-		testList.setVisibleRowCount(10);
+//		/testList.setVisibleRowCount(10);
 		//s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		frame.getContentPane().add(testList);
 		
@@ -100,7 +100,7 @@ public class InventoryEmployee {
 //					sp = new JScrollPan);
 					//sb = new JScrollBar(listDisplay)
 					testList.setModel(listDisplay);
-					sp.setViewportView(testList);
+//					sp.setViewportView(testList);
 					}
 				else if(!rdbtnFood.isSelected()) {
 					
