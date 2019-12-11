@@ -61,6 +61,8 @@ public class Customer extends Person {
 				if (cart.itemList.get(i).getName() == aItem.getName()) {
 					cart.removeItem(aItem);
 					aItem.addQuantity(1);
+					i-=1;
+					aQuantity-=1;
 				}
 
 			}

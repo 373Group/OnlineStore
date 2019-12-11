@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import org.shopping.people.Customer;
+import org.shopping.warehouse.Department;
 import org.shopping.warehouse.Item;
 
 import javax.swing.JList;
@@ -23,6 +24,8 @@ public class CartGui {
 	private JTextField txtYourCart;
 	private JTextField txtYourItems;
 	public Customer customer;
+	public JList list = new JList();
+	private DefaultListModel listDisplay = new DefaultListModel();
 	
 
 	/**
@@ -59,14 +62,12 @@ public class CartGui {
 		frame.getContentPane().add(txtYourItems);
 		txtYourItems.setColumns(10);
 		
-		JList list = new JList();
 		list.setBounds(19, 86, 123, 140);
 		frame.getContentPane().add(list);
 		
 		
 		
 		//*********
-		DefaultListModel listDisplay = new DefaultListModel();
 		
 		
 
@@ -75,7 +76,7 @@ public class CartGui {
 			 hSet.add(x); 
 		
 		 for (Item x : hSet) 
-			 listDisplay.addElement(x.getName() + "-- "+ String.valueOf(x.getCartQuantity()));
+			 listDisplay.addElement(x.getName() + " -- "+ String.valueOf(x.getCartQuantity()));
 		 
 //		for(Item i : customer.getCart().itemList) {
 //			//System.out.println(i.getName());
@@ -90,8 +91,44 @@ public class CartGui {
 		//*********
 		
 		JButton btnDeleteItem = new JButton("Delete Item");
+		
 		btnDeleteItem.setBounds(229, 86, 117, 29);
 		frame.getContentPane().add(btnDeleteItem);
+		btnDeleteItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			if(list.getSelectedValue() != null) {
+				String ItemName = (String) list.getSelectedValue(); //ItemName is has input format of "<NameOfItem> --- <Quantity>"
+				String[] ItemNameSplit = ItemName.split(" ");
+				ItemName = ItemNameSplit[0];
+				int quantity = Integer.parseInt(ItemNameSplit[2]);
+				System.out.println(quantity);
+				Item aItem = new Item();
+				for(Item item: customer.getCart().getItemList()) {
+					if(item.getName().equals(ItemName)) {
+						aItem = item;
+						break;
+					}
+				}
+				System.out.println("grabbing item from cart is working");
+				customer.removeFromCart(aItem, quantity);
+				listDisplay.clear();
+				listDisplay = new DefaultListModel();
+				listDisplay.addElement("");
+				list.removeAll();
+				
+				for (Item x : customer.getCart().itemList) 
+					 System.out.println(x.getName() + "Is still in the cart");//hSet.add(x); 
+				
+				 for (Item x : hSet) 
+					 listDisplay.addElement(x.getName() + " -- "+ String.valueOf(x.getCartQuantity()));
+					 
+				System.out.println(listDisplay.contains(ItemName));
+				list.setModel(listDisplay);
+			}	
+			//displayVals2.clear();
+			
+			}
+		});
 		
 		JButton btnGoToPayment = new JButton("Go to Payment");
 		btnGoToPayment.addActionListener(new ActionListener() {
