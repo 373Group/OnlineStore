@@ -14,6 +14,8 @@ import org.shopping.warehouse.Department;
 import org.shopping.warehouse.Item;
 
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -29,6 +31,7 @@ public class InventoryEmployee {
 	private JTextField textField_2;
 	public ArrayList<String> displayVals = new ArrayList<String>();
 	public JList testList = new JList();
+	private JScrollPane sp = new JScrollPane();
 	public OnlineStore onlinestore;
 	public Employee employee;
 
@@ -74,38 +77,43 @@ public class InventoryEmployee {
 		frame.getContentPane().add(txtWhatDoYou);
 		
 		testList.setBounds(27, 79, 149, 162);
+		testList.setVisibleRowCount(10);
+		//s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		frame.getContentPane().add(testList);
 		
 		
 		JRadioButton rdbtnFood = new JRadioButton("Food");
 		rdbtnFood.setBounds(31, 57, 71, 23);
 		frame.getContentPane().add(rdbtnFood);
-//		rdbtnFood.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Food pressed");
-//				DefaultListModel listDisplay = new DefaultListModel();
-//				ArrayList<String> displayVals2 = jListFunction("food");
-//				if(rdbtnFood.isSelected()) {
-//					
-//					for (String s : displayVals2) {
-//						System.out.println(s);
-//						listDisplay.addElement(s);	
-//						
-//						}
-//					testList.setModel(listDisplay);
-//					}
-//				else if(!rdbtnFood.isSelected()) {
-//					
-//					displayVals2.clear();
-//					listDisplay.clear();
-//					testList.setModel(listDisplay);
-//				}
-//					
-//				
-//				}
-//				
-//				
-//		});
+		rdbtnFood.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Food pressed");
+				DefaultListModel listDisplay = new DefaultListModel();
+				ArrayList<String> displayVals2 = jListFunction("food");
+				if(rdbtnFood.isSelected()) {
+					
+					for (String s : displayVals2) {
+						System.out.println(s);
+						listDisplay.addElement(s);	
+						
+						}
+//					sp = new JScrollPan);
+					//sb = new JScrollBar(listDisplay)
+					testList.setModel(listDisplay);
+					sp.setViewportView(testList);
+					}
+				else if(!rdbtnFood.isSelected()) {
+					
+					displayVals2.clear();
+					listDisplay.clear();
+					testList.setModel(listDisplay);
+				}
+					
+				
+				}
+				
+				
+		});
 		
 		JRadioButton rdbtnElectronics = new JRadioButton("Electronics");
 		rdbtnElectronics.addActionListener(new ActionListener() {
@@ -141,70 +149,70 @@ public class InventoryEmployee {
 		JRadioButton rdbtnProduce = new JRadioButton("Produce");
 		rdbtnProduce.setBounds(240, 57, 71, 23);
 		frame.getContentPane().add(rdbtnProduce);
-		
-		ButtonGroup bgroup = new ButtonGroup();
-		bgroup.add(rdbtnPharmacy);
-		bgroup.add(rdbtnProduce);
-		bgroup.add(rdbtnNewRadioButton);
-		bgroup.add(rdbtnElectronics);
-//		rdbtnProduce.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Produce pressed");
-//				DefaultListModel listDisplay = new DefaultListModel();
-//				ArrayList<String> displayVals2 = jListFunction("produce");
-//				if(rdbtnProduce.isSelected()) {
-//					
-//					for (String s : displayVals2) {
-//						System.out.println(s);
-//						listDisplay.addElement(s);	
-//						
-//						}
-//					testList.setModel(listDisplay);
-//					}
-//				else if(!rdbtnProduce.isSelected()) {
-//					
-//					displayVals2.clear();
-//					listDisplay.clear();
-//					testList.setModel(listDisplay);
-//				}
-//					
-//				
-//				}
-//				
-//				
-//		});
+		rdbtnProduce.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Produce pressed");
+				DefaultListModel listDisplay = new DefaultListModel();
+				ArrayList<String> displayVals2 = jListFunction("produce");
+				if(rdbtnProduce.isSelected()) {
+					
+					for (String s : displayVals2) {
+						System.out.println(s);
+						listDisplay.addElement(s);	
+						
+						}
+					testList.setModel(listDisplay);
+					}
+				else if(!rdbtnProduce.isSelected()) {
+					
+					displayVals2.clear();
+					listDisplay.clear();
+					testList.setModel(listDisplay);
+				}
+					
+				
+				}
+				
+				
+		});
 		
 		JRadioButton rdbtnPharmacy = new JRadioButton("Pharmacy");
 		rdbtnPharmacy.setBounds(334, 57, 71, 23);
 		frame.getContentPane().add(rdbtnPharmacy);
-//		rdbtnPharmacy.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("pharmacy pressed");
-//				DefaultListModel listDisplay = new DefaultListModel();
-//				ArrayList<String> displayVals2 = jListFunction("pharmacy");
-//				if(rdbtnPharmacy.isSelected()) {
-//					
-//					for (String s : displayVals2) {
-//						System.out.println(s);
-//						listDisplay.addElement(s);	
-//						
-//						}
-//					testList.setModel(listDisplay);
-//					}
-//				else if(!rdbtnElectronics.isSelected()) {
-//					
-//					displayVals2.clear();
-//					listDisplay.clear();
-//					testList.setModel(listDisplay);
-//				}
-//					
-//				}
-//				
-//		});
+		rdbtnPharmacy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("pharmacy pressed");
+				DefaultListModel listDisplay = new DefaultListModel();
+				ArrayList<String> displayVals2 = jListFunction("pharmacy");
+				if(rdbtnPharmacy.isSelected()) {
+					
+					for (String s : displayVals2) {
+						System.out.println(s);
+						listDisplay.addElement(s);	
+						
+						}
+					testList.setModel(listDisplay);
+					}
+				else if(!rdbtnElectronics.isSelected()) {
+					
+					displayVals2.clear();
+					listDisplay.clear();
+					testList.setModel(listDisplay);
+				}
+					
+				}
+				
+		});
 		
-//		JList list = new JList();
-//		list.setBounds(31, 86, 149, 162);
-//		frame.getContentPane().add(list);
+		JList list = new JList();
+		list.setBounds(31, 86, 149, 162);
+		frame.getContentPane().add(list);
+
+		ButtonGroup bgroup = new ButtonGroup();
+		bgroup.add(rdbtnPharmacy);
+		bgroup.add(rdbtnProduce);
+		bgroup.add(rdbtnFood);
+		bgroup.add(rdbtnElectronics);
 		
 		JTextArea txtrSetmax = new JTextArea();
 		txtrSetmax.setText("Current amount");
