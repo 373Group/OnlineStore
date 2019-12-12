@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 
 
@@ -64,9 +66,10 @@ public class CreateUser {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea txtrPleaseCreateAn = new JTextArea();
-		txtrPleaseCreateAn.setText(" Please create an account");
+		txtrPleaseCreateAn.setBackground(SystemColor.window);
+		txtrPleaseCreateAn.setText(" Please create an account to use baby Amazon");
 		txtrPleaseCreateAn.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		txtrPleaseCreateAn.setBounds(103, 41, 220, 26);
+		txtrPleaseCreateAn.setBounds(77, 26, 311, 16);
 		frame.getContentPane().add(txtrPleaseCreateAn);
 		
 //		JTextArea txtrName = new JTextArea();
@@ -75,14 +78,18 @@ public class CreateUser {
 //		frame.getContentPane().add(txtrName);
 		
 		JTextArea txtrUsername = new JTextArea();
-		txtrUsername.setText("Username");
-		txtrUsername.setBounds(101, 136, 80, 27);
+		txtrUsername.setBackground(SystemColor.window);
+		txtrUsername.setEditable(false);
+		txtrUsername.setText("Username:");
+		txtrUsername.setBounds(103, 108, 80, 16);
 //		txtrUsername.setAlignmentX(Component.CENTER_ALIGNMENT);
 		frame.getContentPane().add(txtrUsername);
 		
 		JTextArea txtrPassword = new JTextArea();
-		txtrPassword.setText("Password");
-		txtrPassword.setBounds(103, 181, 78, 27);
+		txtrPassword.setBackground(SystemColor.window);
+		txtrPassword.setEditable(false);
+		txtrPassword.setText("Password:");
+		txtrPassword.setBounds(103, 163, 78, 16);
 //		txtrPassword.setAlignmentX(Component.CENTER_ALIGNMENT);
 		frame.getContentPane().add(txtrPassword);
 		
@@ -93,12 +100,12 @@ public class CreateUser {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(191, 136, 164, 26);
+		textField_1.setBounds(103, 124, 164, 26);
 		frame.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(191, 181, 164, 26);
+		textField_2.setBounds(103, 179, 164, 26);
 		frame.getContentPane().add(textField_2);
 		
 		

@@ -66,8 +66,8 @@ public class Test1 {
 		txtpnWelcomeToBaby.setBackground(Color.CYAN);
 		txtpnWelcomeToBaby.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		txtpnWelcomeToBaby.setContentType("text/html");
-		txtpnWelcomeToBaby.setText("<html><center><b><font size=5>Welcome to baby Amazon</font></b></center></html>");
-		txtpnWelcomeToBaby.setBounds(100, 60, 249, 55);
+		txtpnWelcomeToBaby.setText("<html><center><b><font size=5><br>Welcome to baby Amazon</font></b></center></html>");
+		txtpnWelcomeToBaby.setBounds(98, 44, 249, 55);
 		frame.getContentPane().add(txtpnWelcomeToBaby);
 		
 		JButton btnNewUser = new JButton("New User?");

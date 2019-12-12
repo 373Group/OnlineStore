@@ -11,6 +11,7 @@ import org.shopping.people.Customer;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class PaymentsMethod {
 
@@ -47,8 +48,9 @@ public class PaymentsMethod {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea txtrPayment = new JTextArea();
-		txtrPayment.setText("Payment ");
-		txtrPayment.setBounds(155, 6, 179, 39);
+		txtrPayment.setBackground(SystemColor.window);
+		txtrPayment.setText("Payment Method");
+		txtrPayment.setBounds(173, 29, 110, 16);
 		frame.getContentPane().add(txtrPayment);
 		
 		textField = new JTextField();
@@ -67,20 +69,23 @@ public class PaymentsMethod {
 		textField_2.setColumns(10);
 		
 		txtCardnumber = new JTextField();
-		txtCardnumber.setText("cardNumber");
-		txtCardnumber.setBounds(23, 57, 130, 26);
+		txtCardnumber.setBackground(SystemColor.window);
+		txtCardnumber.setText("16-digit card number:");
+		txtCardnumber.setBounds(96, 57, 130, 26);
 		frame.getContentPane().add(txtCardnumber);
 		txtCardnumber.setColumns(10);
 		
 		txtExpiry = new JTextField();
-		txtExpiry.setText("expiry");
-		txtExpiry.setBounds(23, 95, 130, 26);
+		txtExpiry.setBackground(SystemColor.window);
+		txtExpiry.setText("expiration date:");
+		txtExpiry.setBounds(116, 95, 110, 26);
 		frame.getContentPane().add(txtExpiry);
 		txtExpiry.setColumns(10);
 		
 		txtCvv = new JTextField();
-		txtCvv.setText("Cvv");
-		txtCvv.setBounds(23, 133, 130, 26);
+		txtCvv.setBackground(SystemColor.window);
+		txtCvv.setText("cvv:");
+		txtCvv.setBounds(186, 133, 40, 26);
 		frame.getContentPane().add(txtCvv);
 		txtCvv.setColumns(10);
 		

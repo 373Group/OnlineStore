@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class EmpLogin {
 
@@ -58,30 +60,28 @@ public class EmpLogin {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JTextArea txtrPleaseLogin = new JTextArea();
-		txtrPleaseLogin.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		txtrPleaseLogin.setText("Employee Login");
-		txtrPleaseLogin.setBounds(50, 69, 177, 63);
-		frame.getContentPane().add(txtrPleaseLogin);
-		
 		textField = new JTextField();
-		textField.setBounds(207, 162, 130, 26);
+		textField.setBounds(131, 142, 155, 26);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(207, 200, 130, 26);
+		textField_1.setBounds(131, 202, 155, 26);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		JTextArea txtrUsername = new JTextArea();
-		txtrUsername.setText("UserName");
-		txtrUsername.setBounds(50, 162, 109, 26);
+		txtrUsername.setEditable(false);
+		txtrUsername.setBackground(SystemColor.window);
+		txtrUsername.setText("User Name:");
+		txtrUsername.setBounds(121, 119, 79, 26);
 		frame.getContentPane().add(txtrUsername);
 		
 		JTextArea txtrPassword = new JTextArea();
-		txtrPassword.setText("Password");
-		txtrPassword.setBounds(50, 205, 109, 26);
+		txtrPassword.setEditable(false);
+		txtrPassword.setBackground(SystemColor.window);
+		txtrPassword.setText("Password:");
+		txtrPassword.setBounds(119, 180, 64, 26);
 		frame.getContentPane().add(txtrPassword);
 		
 		
@@ -101,8 +101,15 @@ public class EmpLogin {
 				
 			}
 		});
-		btnNewButton.setBounds(207, 238, 117, 29);
+		btnNewButton.setBounds(144, 240, 117, 29);
 		frame.getContentPane().add(btnNewButton);
+		
+		JTextPane txtpnEmployeeLogin = new JTextPane();
+		txtpnEmployeeLogin.setBackground(new Color(0, 204, 255));
+		txtpnEmployeeLogin.setContentType("text/html");
+		txtpnEmployeeLogin.setText("<html><center><b><font size=5><br>Employee Login</font></b></center></html>");
+		txtpnEmployeeLogin.setBounds(121, 31, 189, 57);
+		frame.getContentPane().add(txtpnEmployeeLogin);
 	}
 	public void buildEmployeeInventory(Employee emp) {
 		

@@ -16,16 +16,17 @@ import javax.swing.JRadioButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import javax.swing.JTextPane;
+import javax.swing.JScrollBar;
 
 public class InventoryCustomer {
 
 	public JFrame frame;
-	private JTextField txtWhatDoYou;
 	private JTextField textField;
 	public OnlineStore onlinestore;
 	public ArrayList<String> displayVals = new ArrayList<String>();
@@ -55,12 +56,6 @@ public class InventoryCustomer {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		txtWhatDoYou = new JTextField();
-		txtWhatDoYou.setText("What do you want to BUY?");
-		txtWhatDoYou.setBounds(111, 6, 175, 26);
-		frame.getContentPane().add(txtWhatDoYou);
-		txtWhatDoYou.setColumns(10);
 		
 		//listJ
 		testList.setBounds(27, 79, 149, 162);
@@ -92,7 +87,7 @@ public class InventoryCustomer {
 				
 		});
 		
-		rdbtnElectronics.setBounds(121, 44, 77, 23);
+		rdbtnElectronics.setBounds(100, 44, 101, 23);
 		frame.getContentPane().add(rdbtnElectronics);
 		
 		
@@ -145,7 +140,7 @@ public class InventoryCustomer {
 		});
 		
 		
-		rdbtnProduce.setBounds(210, 44, 62, 23);
+		rdbtnProduce.setBounds(210, 44, 101, 23);
 		frame.getContentPane().add(rdbtnProduce);
 		
 		JRadioButton rdbtnPharmacy = new JRadioButton("Pharmacy");
@@ -169,14 +164,10 @@ public class InventoryCustomer {
 		});
 		
 		
-		rdbtnPharmacy.setBounds(296, 44, 62, 23);
-		frame.getContentPane().add(rdbtnPharmacy);
+		rdbtnPharmacy.setBounds(296, 44, 101, 23);
 		
-		ButtonGroup bgroup = new ButtonGroup();
-		bgroup.add(rdbtnPharmacy);
-		bgroup.add(rdbtnProduce);
-		bgroup.add(rdbtnNewRadioButton);
-		bgroup.add(rdbtnElectronics);
+		
+		frame.getContentPane().add(rdbtnPharmacy);
 
 		fBtn = rdbtnNewRadioButton.isSelected();
 		pBtn = rdbtnProduce.isSelected();
@@ -188,8 +179,10 @@ public class InventoryCustomer {
 		textField.setColumns(10);
 		
 		JTextArea txtrAddQuantity = new JTextArea();
-		txtrAddQuantity.setText("Add Quantity");
-		txtrAddQuantity.setBounds(210, 110, 88, 26);
+		txtrAddQuantity.setEditable(false);
+		txtrAddQuantity.setBackground(SystemColor.window);
+		txtrAddQuantity.setText("Add Quantity:");
+		txtrAddQuantity.setBounds(236, 110, 88, 23);
 		frame.getContentPane().add(txtrAddQuantity);
 		
 		JButton btnAddToCart = new JButton("Add to Cart");		
@@ -241,6 +234,18 @@ public class InventoryCustomer {
 		});
 		btnCheckOut.setBounds(310, 228, 117, 29);
 		frame.getContentPane().add(btnCheckOut);
+		
+		JTextPane txtpnWhatWouldYou = new JTextPane();
+		txtpnWhatWouldYou.setEditable(false);
+		txtpnWhatWouldYou.setBackground(SystemColor.window);
+		txtpnWhatWouldYou.setContentType("text/html");
+		txtpnWhatWouldYou.setText("<html><font=5><b>What would you like to purchase today?</b></font></html>");
+		txtpnWhatWouldYou.setBounds(100, 17, 261, 15);
+		frame.getContentPane().add(txtpnWhatWouldYou);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(161, 79, 15, 162);
+		frame.getContentPane().add(scrollBar);
 		
 		
 		

@@ -12,11 +12,14 @@ import org.shopping.warehouse.Department;
 import org.shopping.warehouse.Item;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollBar;
+import java.awt.SystemColor;
 
 public class CartGui {
 
@@ -24,8 +27,10 @@ public class CartGui {
 	private JTextField txtYourCart;
 	private JTextField txtYourItems;
 	public Customer customer;
-	public JList list = new JList();
-	private DefaultListModel listDisplay = new DefaultListModel();
+	public JList list;
+	public DefaultListModel listDisplay;
+	public int bill;
+	public JTextArea textArea = new JTextArea();
 	
 
 	/**
@@ -37,6 +42,8 @@ public class CartGui {
 	 * Create the application.
 	 */
 	public CartGui(Customer c) {
+		list = new JList();
+		listDisplay= new DefaultListModel();
 		customer = c;
 		initialize();
 	}
@@ -51,8 +58,10 @@ public class CartGui {
 		frame.getContentPane().setLayout(null);
 		
 		txtYourCart = new JTextField();
+		txtYourCart.setBackground(SystemColor.window);
+		txtYourCart.setEditable(false);
 		txtYourCart.setText("Your Cart");
-		txtYourCart.setBounds(157, 6, 130, 26);
+		txtYourCart.setBounds(191, 6, 72, 26);
 		frame.getContentPane().add(txtYourCart);
 		txtYourCart.setColumns(10);
 		
@@ -96,36 +105,82 @@ public class CartGui {
 		frame.getContentPane().add(btnDeleteItem);
 		btnDeleteItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if(list.getSelectedValue() != null) {
-				String ItemName = (String) list.getSelectedValue(); //ItemName is has input format of "<NameOfItem> --- <Quantity>"
-				String[] ItemNameSplit = ItemName.split(" ");
-				ItemName = ItemNameSplit[0];
-				int quantity = Integer.parseInt(ItemNameSplit[2]);
-				System.out.println(quantity);
-				Item aItem = new Item();
-				for(Item item: customer.getCart().getItemList()) {
-					if(item.getName().equals(ItemName)) {
-						aItem = item;
-						break;
+				
+				if(list.getSelectedValue() != null) {
+					String itemName;
+					itemName = (String) list.getSelectedValue(); //ItemName is has input format of "<NameOfItem> --- <Quantity>"
+					String[] ItemNameSplit = itemName.split(" ");
+					itemName = ItemNameSplit[0];
+					int quantity ;
+					int counter;
+					quantity = Integer.parseInt(ItemNameSplit[2]);
+					System.out.println(itemName+quantity);
+					System.out.println(customer.getCart().getItemList().size());
+					for (Item i : customer.getCart().getItemList()) {
+						if(i.getName().equals(itemName)) {
+							//customer.removeFromCart(i, quantity);
+							for( counter=0; counter<quantity; counter++) {
+								customer.getCart().getItemList().remove(i);
+							}
+							
+							break;
+						}
 					}
-				}
-				System.out.println("grabbing item from cart is working");
-				customer.removeFromCart(aItem, quantity);
-				listDisplay.clear();
-				listDisplay = new DefaultListModel();
-				listDisplay.addElement("");
-				list.removeAll();
-				
-				for (Item x : customer.getCart().itemList) 
-					 System.out.println(x.getName() + "Is still in the cart");//hSet.add(x); 
-				
-				 for (Item x : hSet) 
-					 listDisplay.addElement(x.getName() + " -- "+ String.valueOf(x.getCartQuantity()));
+					
+					System.out.println(customer.getCart().getItemList().size());
+					listDisplay.clear();
+					
+					Set<Item> hSet = new HashSet<Item>(); 
+					 for (Item x : customer.getCart().itemList) 
+						 hSet.add(x); 
+					
+					 for (Item x : hSet) 
+						 listDisplay.addElement(x.getName() + " -- "+ String.valueOf(x.getCartQuantity()));
 					 
-				System.out.println(listDisplay.contains(ItemName));
-				list.setModel(listDisplay);
-			}	
-			//displayVals2.clear();
+					 //list.setModel();
+					 list.setModel(listDisplay);
+					 BuildCost();
+					 
+					
+				}else {
+					System.out.println("Please Select a item to be deleted");
+					JOptionPane.showMessageDialog(null, "Please Select a item to be deleted" , "select Item", JOptionPane.ERROR_MESSAGE);
+				
+					
+				}	
+				
+				
+//			if(list.getSelectedValue() != null) {
+//				String ItemName = (String) list.getSelectedValue(); //ItemName is has input format of "<NameOfItem> --- <Quantity>"
+//				String[] ItemNameSplit = ItemName.split(" ");
+//				ItemName = ItemNameSplit[0];
+//				int quantity = Integer.parseInt(ItemNameSplit[2]);
+//				System.out.println(quantity);
+//				Item aItem = new Item();
+//				for(Item item: customer.getCart().getItemList()) {
+//					if(item.getName().equals(ItemName)) {
+//						aItem = item;
+//						break;
+//					}
+//				}
+//				System.out.println("grabbing item from cart is working");
+//				customer.removeFromCart(aItem, quantity);
+//				listDisplay.clear();
+//				//listDisplay = new DefaultListModel();
+//				listDisplay.addElement("");
+//				list.removeAll();
+//				
+//				for (Item x : customer.getCart().itemList) 
+//					 System.out.println(x.getName() + "Is still in the cart");//hSet.add(x); 
+//				
+//				 for (Item x : hSet) 
+//					 listDisplay.addElement(x.getName() + " -- "+ String.valueOf(x.getCartQuantity()));
+//					 
+//				System.out.println(listDisplay.contains(ItemName));
+//				//list.setModel(listDisplay);
+//			}	
+//			//displayVals2.clear();
+				//BuildCost();
 			
 			}
 		});
@@ -144,17 +199,28 @@ public class CartGui {
 		frame.getContentPane().add(btnGoToPayment);
 		
 		JTextArea txtrYourBill = new JTextArea();
-		txtrYourBill.setText("Total");
-		txtrYourBill.setBounds(157, 129, 106, 29);
+		txtrYourBill.setBackground(SystemColor.window);
+		txtrYourBill.setText("Total:");
+		txtrYourBill.setBounds(218, 127, 45, 29);
 		frame.getContentPane().add(txtrYourBill);
 		
-		JTextArea textArea = new JTextArea();
+		//JTextArea textArea = new JTextArea();
 		textArea.setBounds(275, 127, 123, 35);
 		frame.getContentPane().add(textArea);
+		bill = (int) customer.getCart().getTotal();
+		textArea.setText(String.valueOf("$ " + bill));
 		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(126, 86, 15, 140);
+		frame.getContentPane().add(scrollBar);
 		
-		textArea.setText(String.valueOf("$ " + customer.getCart().getTotal()));
+	}
+	
+	public void BuildCost() {
 		
+		bill = (int) customer.getCart().getTotal();
+		textArea.setText(String.valueOf("$ " + bill));
+		System.out.println(bill);
 		
 	}
 	
@@ -163,6 +229,4 @@ public class CartGui {
 		PaymentsMethod ns = new PaymentsMethod(customer);
 		ns.frame.setVisible(true);
 	}
-	
-	
 }

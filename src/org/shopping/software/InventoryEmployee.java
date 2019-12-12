@@ -22,6 +22,8 @@ import javax.swing.JTextArea;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import java.awt.SystemColor;
+import javax.swing.JTextPane;
 
 public class InventoryEmployee {
 
@@ -66,14 +68,17 @@ public class InventoryEmployee {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.window);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		txtWhatDoYou = new JTextField();
-		txtWhatDoYou.setText("What do you want to add?");
+		txtWhatDoYou.setBackground(SystemColor.window);
+		txtWhatDoYou.setEditable(false);
+		txtWhatDoYou.setText("What would you like to add to inventory?");
 		txtWhatDoYou.setColumns(10);
-		txtWhatDoYou.setBounds(136, 18, 175, 26);
+		txtWhatDoYou.setBounds(76, 18, 270, 26);
 		frame.getContentPane().add(txtWhatDoYou);
 		
 		testList.setBounds(27, 79, 149, 162);
@@ -83,7 +88,7 @@ public class InventoryEmployee {
 		
 		
 		JRadioButton rdbtnFood = new JRadioButton("Food");
-		rdbtnFood.setBounds(31, 57, 71, 23);
+		rdbtnFood.setBounds(27, 43, 71, 23);
 		frame.getContentPane().add(rdbtnFood);
 		rdbtnFood.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -142,12 +147,12 @@ public class InventoryEmployee {
 				
 				
 		});
-		rdbtnElectronics.setBounds(146, 56, 71, 23);
+		rdbtnElectronics.setBounds(114, 43, 114, 23);
 		frame.getContentPane().add(rdbtnElectronics);
 		
 		
 		JRadioButton rdbtnProduce = new JRadioButton("Produce");
-		rdbtnProduce.setBounds(240, 57, 71, 23);
+		rdbtnProduce.setBounds(215, 43, 107, 23);
 		frame.getContentPane().add(rdbtnProduce);
 		rdbtnProduce.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -177,7 +182,7 @@ public class InventoryEmployee {
 		});
 		
 		JRadioButton rdbtnPharmacy = new JRadioButton("Pharmacy");
-		rdbtnPharmacy.setBounds(334, 57, 71, 23);
+		rdbtnPharmacy.setBounds(311, 43, 93, 23);
 		frame.getContentPane().add(rdbtnPharmacy);
 		rdbtnPharmacy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,45 +209,29 @@ public class InventoryEmployee {
 				
 		});
 		
-		JList list = new JList();
-		list.setBounds(31, 86, 149, 162);
-		frame.getContentPane().add(list);
+		//JList list = new JList();
+		//list.setBounds(31, 86, 149, 162);
+		//frame.getContentPane().add(list);
 
-		ButtonGroup bgroup = new ButtonGroup();
+		/*ButtonGroup bgroup = new ButtonGroup();
 		bgroup.add(rdbtnPharmacy);
 		bgroup.add(rdbtnProduce);
 		bgroup.add(rdbtnFood);
-		bgroup.add(rdbtnElectronics);
-		
-		JTextArea txtrSetmax = new JTextArea();
-		txtrSetmax.setText("Current amount");
-		txtrSetmax.setBounds(192, 103, 107, 26);
-		frame.getContentPane().add(txtrSetmax);
-		
-		JTextArea txtrMaxQuantity = new JTextArea();
-		txtrMaxQuantity.setText("Max Quantity");
-		txtrMaxQuantity.setBounds(192, 141, 107, 26);
-		frame.getContentPane().add(txtrMaxQuantity);
-		
-		JTextArea txtrAddQuantity = new JTextArea();
-		txtrAddQuantity.setText("Add Quantity");
-		txtrAddQuantity.setBounds(192, 179, 107, 26);
-		frame.getContentPane().add(txtrAddQuantity);
+		bgroup.add(rdbtnElectronics);*/
 		
 		JTextField textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(311, 141, 94, 26);
+		textField_1.setBounds(217, 110, 94, 26);
 		frame.getContentPane().add(textField_1);
 		
 		JTextField textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(311, 179, 94, 26);
+		textField_2.setBounds(217, 168, 94, 26);
 		frame.getContentPane().add(textField_2);
 		
-		JTextArea txtrDisplayCurrentStock = new JTextArea();
-		txtrDisplayCurrentStock.setText("Display current stock");
-		txtrDisplayCurrentStock.setBounds(310, 103, 95, 26);
-		frame.getContentPane().add(txtrDisplayCurrentStock);
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.setBounds(6, 243, 117, 29);
+		frame.getContentPane().add(btnLogout);
 		
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -280,16 +269,40 @@ public class InventoryEmployee {
 								}
 							}
 						}
-						
-					}					
+					JOptionPane.showMessageDialog(null, "The item "+ itemName + " has successfully been updated" , "Empty selection", JOptionPane.INFORMATION_MESSAGE);
+					}	
 					
 				}
 				
-				
+				//buildTest1();
 			}
 		});
-		btnNewButton.setBounds(299, 229, 117, 29);
+		
+		btnLogout.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				buildTest1();
+			}
+		});
+		btnNewButton.setBounds(327, 243, 117, 29);
 		frame.getContentPane().add(btnNewButton);
+		
+		JTextPane txtpnMaxQuantity = new JTextPane();
+		txtpnMaxQuantity.setBackground(SystemColor.window);
+		txtpnMaxQuantity.setText("Set max quantity:");
+		txtpnMaxQuantity.setBounds(215, 92, 114, 16);
+		frame.getContentPane().add(txtpnMaxQuantity);
+		
+		JTextPane txtpnAddQuantity = new JTextPane();
+		txtpnAddQuantity.setBackground(SystemColor.window);
+		txtpnAddQuantity.setText("Add quantity:");
+		txtpnAddQuantity.setBounds(215, 151, 96, 16);
+		frame.getContentPane().add(txtpnAddQuantity);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBackground(SystemColor.textHighlight);
+		scrollBar.setBounds(161, 79, 15, 162);
+		frame.getContentPane().add(scrollBar);
+		
 	}
 	
 	public ArrayList<String> jListFunction(String department){
@@ -307,5 +320,13 @@ public class InventoryEmployee {
 	}
 		return displayVals;
 	}
-
+	
+	public void buildTest1() {
+			
+			Test1 ns = new Test1(onlinestore);
+			//secondFrame.frame.setVisible(true);
+			ns.frame.setVisible(true);
+			
+	
+	}
 }

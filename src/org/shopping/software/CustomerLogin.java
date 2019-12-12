@@ -13,6 +13,10 @@ import org.shopping.people.Employee;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JTextPane;
+import java.awt.Font;
+import java.awt.SystemColor;
 
 public class CustomerLogin {
 
@@ -21,6 +25,9 @@ public class CustomerLogin {
 	private JTextField textField_1;
 	public OnlineStore onlinestore;
 	public Customer customer;
+	private JTextPane txtpnCustomerLogin;
+	private JTextPane txtpnUserName;
+	private JTextPane txtpnPassword;
 
 	/**
 	 * Launch the application.
@@ -55,29 +62,14 @@ public class CustomerLogin {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JTextArea txtrCustomerLogin = new JTextArea();
-		txtrCustomerLogin.setText("Customer Login");
-		txtrCustomerLogin.setBounds(108, 6, 218, 58);
-		frame.getContentPane().add(txtrCustomerLogin);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setText("UserName");
-		textArea.setBounds(29, 129, 109, 26);
-		frame.getContentPane().add(textArea);
-		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setText("Password");
-		textArea_1.setBounds(29, 184, 109, 26);
-		frame.getContentPane().add(textArea_1);
-		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(215, 124, 130, 26);
+		textField.setBounds(140, 128, 130, 26);
 		frame.getContentPane().add(textField);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(215, 179, 130, 26);
+		textField_1.setBounds(140, 186, 130, 26);
 		frame.getContentPane().add(textField_1);
 		
 		JButton button = new JButton("Submit");
@@ -91,8 +83,31 @@ public class CustomerLogin {
 				checkLoginStatus(name, password);
 			}
 		});
-		button.setBounds(228, 224, 117, 29);
+		button.setBounds(140, 224, 117, 29);
 		frame.getContentPane().add(button);
+		
+		txtpnCustomerLogin = new JTextPane();
+		txtpnCustomerLogin.setContentType("text/html");
+		txtpnCustomerLogin.setEditable(false);
+		txtpnCustomerLogin.setBackground(Color.GREEN);
+		txtpnCustomerLogin.setText("<html><center><b><font size=5><br>Customer Login</font></b></center></html>");
+		txtpnCustomerLogin.setBounds(140, 25, 170, 54);
+		frame.getContentPane().add(txtpnCustomerLogin);
+		
+		txtpnUserName = new JTextPane();
+		txtpnUserName.setEditable(false);
+		txtpnUserName.setBackground(SystemColor.window);
+		txtpnUserName.setText("User Name:");
+		txtpnUserName.setBounds(145, 107, 73, 16);
+		frame.getContentPane().add(txtpnUserName);
+		
+		txtpnPassword = new JTextPane();
+		txtpnPassword.setEditable(false);
+		txtpnPassword.setBackground(SystemColor.window);
+		txtpnPassword.setForeground(SystemColor.textText);
+		txtpnPassword.setText("Password:");
+		txtpnPassword.setBounds(145, 166, 73, 16);
+		frame.getContentPane().add(txtpnPassword);
 	}
 	
 	
@@ -113,12 +128,11 @@ public class CustomerLogin {
 			JOptionPane.showMessageDialog(null, "No password entered " , "Empty Password", JOptionPane.ERROR_MESSAGE);
 		}
 		
-		if(name.equals("")) {
+		else if(name.equals("")) {
 			System.out.println("Please enter UserName");
 			JOptionPane.showMessageDialog(null, "No UserName entered " , "Empty UserName", JOptionPane.ERROR_MESSAGE);
 		}
-		
-		
+		else {
 		for (Customer c : onlinestore.customerList.keySet()) { 
 			//System.out.println(c.getName());
 			System.out.println(password);
@@ -135,7 +149,7 @@ public class CustomerLogin {
 			}
 			else {
 				System.out.println("Incorrect password");
-				JOptionPane.showMessageDialog(null, "Customer Password incorrect. Please try again." , "Password not correct", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Customer Password incorrect. Please try again." , "Password not correct", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		else{
@@ -143,7 +157,7 @@ public class CustomerLogin {
 			//System.out.println(name);
 			JOptionPane.showMessageDialog(null, "Customer UserName not found. Please create new ID." , "UserName not found", JOptionPane.ERROR_MESSAGE);
 		}
+	}
 				
 	}
-
 }
