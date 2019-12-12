@@ -8,9 +8,6 @@ import java.util.Scanner;
 public class PaymentMethod {
 	
 	public Boolean IncorrectPayment() {
-		//for(String itr : CCNumber) {
-		//	
-		//}
 		Scanner console = new Scanner(System.in);
 		boolean flag = false;
 		while(flag == false) {
